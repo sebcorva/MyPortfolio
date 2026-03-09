@@ -1,0 +1,114 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.topHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    width: 100%;
+}
+
+.hamburgerIcon {
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.socialIcons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.socialLink {
+    color: var(--text-primary);
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.socialLink:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.socialIcon {
+    cursor: pointer;
+}
+
+.langButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.langButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.chatWindow {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.messagesContainer {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollbar styles for messages */
+.messagesContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messagesContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.messagesContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.inlineButton {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.inlineButton:hover {
+    background-color: #4b5563;
+}
+
+.skillsEmojiTrigger {
+    text-align: center;
+    transition: opacity 0.3s ease;
+    padding: 10px 0;
+}

@@ -1,0 +1,98 @@
+.bubbleWrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeIn 0.4s forwards ease-out;
+}
+
+.botWrapper {
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.userWrapper {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    margin-left: auto;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.botWrapper .avatar {
+    margin-right: 12px;
+}
+
+.userWrapper .avatar {
+    margin-left: 12px;
+}
+
+.bubble {
+    max-width: 80%;
+    padding: 14px 20px;
+    border-radius: 20px;
+    line-height: 1.5;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    position: relative;
+    padding-bottom: 24px;
+}
+
+.projectBubble {
+    background-color: transparent !important;
+    padding: 0 !important;
+    max-width: 50%;
+}
+
+@media (max-width: 768px) {
+    .projectBubble {
+        max-width: 90%;
+    }
+}
+
+.actionContainer {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.bot {
+    background-color: var(--bubble-bg);
+    color: var(--text-primary);
+    border-top-left-radius: 4px;
+}
+
+.user {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-top-right-radius: 4px;
+}
+
+.cursor {
+    display: inline-block;
+    opacity: 1;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
