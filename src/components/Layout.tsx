@@ -8,16 +8,22 @@ import { translations } from '../translations';
 import { ProfileFooter } from './ProfileFooter';
 
 export const Layout: React.FC = () => {
-    const { phase, isTyping, isWaitingForUser, advancePhase, finishTyping } = useChatEngine();
+    const { phase, isTyping, isWaitingForUser, advancePhase, finishTyping, skipAll } = useChatEngine();
     const chatBottomRef = useRef<HTMLDivElement>(null);
 
     const [subMsgIndex, setSubMsgIndex] = useState(0);
-
     const [language, setLanguage] = useState('en');
 
+    const handleSkip = () => {
+        skipAll();
+        const finalPhaseMsgs = translations[language].chat['PROJECTS'];
+        setSubMsgIndex(finalPhaseMsgs.length - 1);
+    };
 
     useEffect(() => {
-        setSubMsgIndex(0);
+        if (isTyping || subMsgIndex === 0) {
+            setSubMsgIndex(0);
+        }
     }, [phase]);
 
     useEffect(() => {
@@ -47,12 +53,14 @@ export const Layout: React.FC = () => {
     return (
         <div className={styles.layoutContainer}>
             <header className={styles.topHeader}>
-                <div className={styles.hamburgerIcon}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
+                <div className={styles.skipContainer} onClick={handleSkip}>
+                    <div className={styles.skipIcon}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="13 17 18 12 13 7"></polyline>
+                            <polyline points="6 17 11 12 6 7"></polyline>
+                        </svg>
+                    </div>
+                    <span className={styles.skipTooltip}>Skip animation</span>
                 </div>
                 <div className={styles.socialIcons}>
                     <button onClick={changeLanguage} className={styles.langButton}>

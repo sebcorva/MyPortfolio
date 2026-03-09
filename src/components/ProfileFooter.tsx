@@ -16,7 +16,10 @@ export const ProfileFooter: React.FC<ProfileFooterProps> = ({ name, title }) => 
             />
             <div className={styles.info}>
                 <p className={styles.name}>{name}</p>
-                <p className={styles.title}>{title}</p>
+                <div className={styles.titleContainer}>
+                    <div className={styles.statusDot}></div>
+                    <p className={styles.title}>{title}</p>
+                </div>
             </div>
         </div>
     );

@@ -10,7 +10,7 @@ const defaultState: ChatState = {
 //useChatEngine is a custom hook that manages the chat state
 export const useChatEngine = () => {
     const [state, setState] = useState<ChatState>(defaultState);
-    
+
     //advancePhase is a function that change the chat phase to pass to the next phase
     const advancePhase = useCallback(() => {
         setState((prev) => {
@@ -54,10 +54,19 @@ export const useChatEngine = () => {
         setState(defaultState);
     }, []);
 
+    const skipAll = useCallback(() => {
+        setState({
+            phase: 'PROJECTS',
+            isTyping: false,
+            isWaitingForUser: true,
+        });
+    }, []);
+
     return {
         ...state,
         advancePhase,
         finishTyping,
         resetChat,
+        skipAll,
     };
 };

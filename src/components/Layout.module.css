@@ -14,9 +14,44 @@
     width: 100%;
 }
 
-.hamburgerIcon {
+.skipContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
     cursor: pointer;
     color: var(--text-primary);
+    transition: color 0.2s ease;
+}
+
+.skipContainer:hover {
+    color: var(--accent-color);
+}
+
+.skipIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skipTooltip {
+    position: absolute;
+    left: 32px;
+    background-color: var(--bubble-bg);
+    color: var(--text-primary);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.skipContainer:hover .skipTooltip {
+    opacity: 1;
+    visibility: visible;
 }
 
 .socialIcons {
@@ -62,7 +97,7 @@
     flex-direction: column;
     flex: 1;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1100px;
     margin: 0 auto;
     overflow: hidden;
 }
